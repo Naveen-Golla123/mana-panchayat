@@ -1,25 +1,13 @@
 
 
 
-:root{
-    color-scheme: dark;
+
+
+body p{
+    font-size: 1.1rem;
+    font-family: "roboto";
+
 }
-
-.author-image{
-    min-width: 2rem;
-    min-height: 2rem;
-    max-width: 3rem;
-    max-height: 3rem;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    background-color: red;
-    background-image: url('https://images.unsplash.com/photo-1511367461989-f85a21fda167');
-}
-
-
-
-
-
 
 
 
@@ -44,13 +32,14 @@
 .tags-container ul{
     padding-inline-start: 0px;
 }
-    .tags-container ul li{
+.tags-container ul li{
     list-style: none;
     display: inline-block;
     border: .1px solid #4D727E;
     border-radius: .1rem;
     padding-inline: .5rem;
     margin-inline-end: .2rem;
+    margin-top: .5rem;
     background-color: #EEEEEE;
     color: #1F4E5F;
 
@@ -59,4 +48,68 @@
 .tags-container ul li:nth-child(1){
     background-color: black;
     color: white;
+}
+
+.share-container ul{
+    padding-inline-start: 0px;
+}
+.share-container ul li{
+    list-style: none;
+    display: inline-block;
+    border: .1px solid #4D727E;
+    border-radius: .1rem;
+    padding-inline: .8rem;
+    margin-inline-end: .2rem;
+    margin-top: .5rem;
+    background-color: #EEEEEE;
+    color: #1F4E5F;
+
+}
+
+.share-container ul li:nth-child(1){
+    background-color: green;
+    color: white;
+}
+
+
+
+.share_body ul{
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.share_body ul li{
+    max-width: 8rem;
+    max-height: 8rem;
+    padding: 1.3rem;
+    margin: .8rem;
+    list-style: none;
+    text-align: center;
+    /* background-color: aquamarine; */
+    border: .1rem solid black;
+    border-radius: .3rem;
+}
+.share_body ul li i{
+    display: block;
+    font-size: 1.5rem;
+    margin-block: .8rem;
+}
+
+
+
+.grid-box{
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    gap: 1rem;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .grid-box{
+       grid-template-columns: 1fr;
+    }
+
+    
+    
 }
