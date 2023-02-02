@@ -7,7 +7,7 @@
         
         <!-- <meta name="color-scheme" content="dark light"> -->
 
-        <title>Mana Panchayat Blog</title>
+        <title>Mana Panchayat Create</title>
 
         <!-- Local CSS Link -->
         <link rel="stylesheet" href="./css/style.css">
@@ -21,40 +21,70 @@
         <!-- Fontawesome Link -->
         <script src="https://kit.fontawesome.com/1a2b0738bb.js" crossorigin="anonymous"></script>
 
+
+
         <!-- Local Js Link -->
         <script src="./js/main.js"></script>
 
+        <!-- CK Editor Link -->
+        <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        
     </head>
 
     <body>
         
 
-<!-- Create a new DIV element that RichTextEditor should replace to your HTML page. -->  
-<div id="div_editor1"></div>  
-<button onclick="btnShowHTMLCode()">Get</button>
+    <div class="container mt-5">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <button class="btn btn-outline-dark px-4 font-weight-bold"type="button" disabled>Title</button>
+            </div>
+            <input type="text" class="form-control" placeholder="Enter your Title here" aria-label="" aria-describedby="basic-addon1">
+            <div class="input-group-prepend ml-3">
+                <button class="btn btn-primary px-4 font-weight-bold"type="button"><i class="fa-regular fa-floppy-disk mr-2"></i>Save</button>
+            </div>          
+        </div>
+        <!-- Create a new DIV element that CKTextEditor should replace to your HTML page. -->  
+        <textarea name="editor1">Type here and show console to see only editor's text</textarea>
+        
+        <div id="textArea"></div>   
+
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>        
+        
+        
+    </div>
 
 
 
-<script>
-    //Then call new() method to replace the matched element with RichTextEditor.  
-    var editor1 = new RichTextEditor("#div_editor1");      
+    <!-- CK Editor Section -->
+    <script>
 
+        let textAreaEl = document.getElementById("textArea");
 
-    //Setting the editor data  
-    editor1.setHTMLCode("<p><b>Hello</b> World</p><p>Click the button below to show this HTML code</p>");  
-    function btnShowHTMLCode() {  
-      // Getting the editor data  
-      alert(editor1.getHTMLCode())  
-    }
-</script>
+        let em_string = "";
 
+        CKEDITOR.replace( 'editor1' );
+        CKEDITOR.on( 'instanceReady', function( evt )
+        {
+            var editor = evt.editor;
+        
+        editor.on('change', function (e) { 
+            var text =  editor.editable().getData();
+            // em_string = text;
+            
+            textAreaEl.innerHTML = text;
+            
+            console.log(text);
+            });
+        }); 
 
-
-
-
-
-
-
+    </script>
 
 
     </body>

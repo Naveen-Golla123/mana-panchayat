@@ -1,8 +1,5 @@
 
 
-
-
-
 var requestOptions = {
     method: 'GET',
     redirect: 'follow'
@@ -11,6 +8,7 @@ var requestOptions = {
   fetch("https://mana-panchayat-server.vercel.app/news/7", requestOptions)
     .then(response => response.json())
     .then(result => {
+
         let newsTitleEl = document.getElementById("newsTitle");
         let newContentEl = document.getElementById("newContent");
         let imgContainerEl = document.getElementById("imgContainer");
@@ -22,10 +20,7 @@ var requestOptions = {
         console.log(imgContainerEl);
         
     }
-    
-        
-    
-    
+
     )
     .catch(error => console.log('error', error));
 
