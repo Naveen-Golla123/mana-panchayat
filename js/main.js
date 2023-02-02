@@ -4,6 +4,11 @@ var requestOptions = {
     method: 'GET',
     redirect: 'follow'
   };
+
+  var postRequestOptions = {
+    method: 'POST',
+    redirect: 'follow'
+  };
   
   fetch("https://mana-panchayat-server.vercel.app/news/7", requestOptions)
     .then(response => response.json())
@@ -25,3 +30,28 @@ var requestOptions = {
     .catch(error => console.log('error', error));
 
 
+console.log();
+
+let postSaveButtonEl = document.getElementById("postSaveButton");
+let titleInputEl = document.getElementById("titleInput");
+
+postSaveButtonEl.addEventListener("click", function(event){
+
+  fetch("https://mana-panchayat-server.vercel.app/news/", postRequestOptions)
+    .then(response => response.json())
+    .then(result => {
+
+        let helu = titleInputEl.value;
+
+        console.log("Title: " + helu);
+        console.log("Content: " + contentOutput);
+        
+    }
+
+    )
+    .catch(error => console.log('error', error));  
+
+
+
+
+});
