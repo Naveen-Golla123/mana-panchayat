@@ -1,11 +1,15 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Akshar:wght@500&display=swap');
 
-
-
+body{
+    
+    font-family: 'Akshar', sans-serif;
+}
 
 body p{
     font-size: 1.1rem;
-    font-family: "roboto";
+    /* font-family: "open sans"; */
+    font-family: 'Akshar', sans-serif;
 
 }
 

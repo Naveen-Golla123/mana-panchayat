@@ -35,22 +35,40 @@ var postRequestOptions = {
 
 
       for (let each in result){
-        console.log(result[each].title);
+        
+        let divTag = document.createElement('div');
+        divTag.setAttribute("id",result[each].id);
+        divTag.classList.add("row", "border", "mt-3", "py-3");
 
-        let allPostsCode = `
-                <div class="col-3">
-                    <img class="w-100" src="${result[each].imgUrl}" alt="" srcset="">
-                </div>
-                <div class="col-9">
-                    <p class="">${result[each].title}</p>
-                    <p class="">${result[each].newsDescription}</p>
-                    <p class="">${result[each].location}</p>
-                </div>          
-        `;
+  
+          let allPostsCode = `
+            
+              <div class="col-3">
+                  <img class="w-100 h-auto" src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/118596058/original/241cc44f7ea8e1b043df8e735c8fdea0975bcb1d/design-catchy-youtube-thumbnail.jpg" alt="" srcset="">
+              </div>
+              <div class="col-9">
+                  <h5 class="font-weight-bold">${result[each].title}</h5>
+                  <div class="mt-3" style="max-height:50px; overflow:hidden;">
+                    <p class="" >${result[each].newsDescription}</p>
+                  </div>
+                  
+                  <div class="d-flex justify-content-between mt-3">
+                    <p class="text-primary p-0">Read More</p>
+
+                    <div class="d-flex justify-content-between">
+                      <p class="text-secondary mr-3"><i class="fa-solid fa-location-dot mr-2"></i>${result[each].location}</p>
+                      <p class="text-secondary"><i class="fa-regular fa-clock mr-2"></i>${result[each].createdOn}</p>                    
+                    </div>
+
+                  </div>
+              </div>           
+          `;
+
+          divTag.innerHTML = allPostsCode;
+          allPostsEl.appendChild(divTag);   
+          
 
         
-        allPostsEl.innerHTML = allPostsCode;       
-        // allPostsEl.appendChild(allPostsCode);         
       }    
 
       // newsTitleEl.innerHTML = result[0].title;
