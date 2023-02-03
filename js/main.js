@@ -77,7 +77,7 @@ postSaveButtonEl.addEventListener("click", function(event){
   };
 
 
-  fetch("http://localhost:3000/news/", {
+  fetch("https://mana-panchayat-server.vercel.app/news/", {
     method: 'POST',
     redirect: 'follow',
     mode: 'no-cors',

@@ -10,6 +10,11 @@ body p{
 }
 
 
+.card{
+    background-image: url('https://images.unsplash.com/photo-1500622944204-b135684e99fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2922&q=80');
+    background-size: cover;
+}
+
 
 .ad-block{
     width: auto;
@@ -27,11 +32,10 @@ body p{
     
 }
 
-
-
 .tags-container ul{
     padding-inline-start: 0px;
 }
+
 .tags-container ul li{
     list-style: none;
     display: inline-block;
@@ -53,6 +57,7 @@ body p{
 .share-container ul{
     padding-inline-start: 0px;
 }
+
 .share-container ul li{
     list-style: none;
     display: inline-block;
