@@ -23,19 +23,47 @@ var postRequestOptions = {
   }
 };
   
-  fetch("https://mana-panchayat-server.vercel.app/news/7", requestOptions)
+  fetch("https://mana-panchayat-server.vercel.app/news/", requestOptions)
     .then(response => response.json())
     .then(result => {
 
         let newsTitleEl = document.getElementById("newsTitle");
         let newContentEl = document.getElementById("newContent");
         let imgContainerEl = document.getElementById("imgContainer");
+        let allPostsEl = document.getElementById("allPosts");
+        let holderEl = document.getElementById("holder");
 
 
-        newsTitleEl.innerHTML = result[0].title;
-        newContentEl.innerHTML = result[0].newsDescription;
-        imgContainerEl.setAttribute("src", "https://tikkablob.blob.core.windows.net/tikka-items/Chicken_Leg.png");
-        console.log(imgContainerEl);
+      for (let each in result){
+        console.log(result[each].title);
+
+        let allPostsCode = `
+            <div class="row">
+                <div class="col-3">
+                    <img class="w-100" src="${result[each].imgUrl}" alt="" srcset="">
+                </div>
+                <div class="col-9">
+                    <p class="">${result[each].title}</p>
+                    <p class="">${result[each].newsDescription}</p>
+                    <p class="">${result[each].location}</p>
+                </div>
+
+            </div>          
+        `;
+
+        
+        holderEl.innerHTML = allPostsCode;       
+        allPostsEl.appendChild(allPostsEl);         
+      }
+       
+
+
+
+
+        // newsTitleEl.innerHTML = result[0].title;
+        // newContentEl.innerHTML = result[0].newsDescription;
+        // imgContainerEl.setAttribute("src", "https://tikkablob.blob.core.windows.net/tikka-items/Chicken_Leg.png");
+        // console.log(imgContainerEl);
         
     }
 
@@ -68,9 +96,9 @@ postSaveButtonEl.addEventListener("click", function(event){
   console.log(titleInputEl.value);
   
   let payloadBody = {
-    'id': 2,
-    'title': titleInputEl.value,
-    'newsDescription': textAreaEl.innerHTML,
+    'id': '',
+    'title': "kkkkk",
+    'newsDescription': "textAreaEl.innerHTML",
     'imgUrl': '',
     'location': 'Ongole',
     'MetaDescription': ''
