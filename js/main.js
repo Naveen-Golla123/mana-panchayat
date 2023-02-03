@@ -38,7 +38,6 @@ var postRequestOptions = {
         console.log(result[each].title);
 
         let allPostsCode = `
-            <div class="row">
                 <div class="col-3">
                     <img class="w-100" src="${result[each].imgUrl}" alt="" srcset="">
                 </div>
@@ -46,24 +45,18 @@ var postRequestOptions = {
                     <p class="">${result[each].title}</p>
                     <p class="">${result[each].newsDescription}</p>
                     <p class="">${result[each].location}</p>
-                </div>
-
-            </div>          
+                </div>          
         `;
 
         
-        holderEl.innerHTML = allPostsCode;       
-        allPostsEl.appendChild(allPostsEl);         
-      }
-       
+        allPostsEl.innerHTML = allPostsCode;       
+        // allPostsEl.appendChild(allPostsCode);         
+      }    
 
-
-
-
-        // newsTitleEl.innerHTML = result[0].title;
-        // newContentEl.innerHTML = result[0].newsDescription;
-        // imgContainerEl.setAttribute("src", "https://tikkablob.blob.core.windows.net/tikka-items/Chicken_Leg.png");
-        // console.log(imgContainerEl);
+      // newsTitleEl.innerHTML = result[0].title;
+      // newContentEl.innerHTML = result[0].newsDescription;
+      // imgContainerEl.setAttribute("src", "https://tikkablob.blob.core.windows.net/tikka-items/Chicken_Leg.png");
+      // console.log(imgContainerEl);
         
     }
 
