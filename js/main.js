@@ -44,7 +44,7 @@ var postRequestOptions = {
           let allPostsCode = `
             
               <div class="col-3">
-                  <img class="w-100 h-auto" src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/118596058/original/241cc44f7ea8e1b043df8e735c8fdea0975bcb1d/design-catchy-youtube-thumbnail.jpg" alt="" srcset="">
+                  <img class="w-100 h-auto" src="${result[each].imgUrl}" alt="" srcset="">
               </div>
               <div class="col-9">
                   <h5 class="font-weight-bold">${result[each].title}</h5>
