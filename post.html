@@ -7,7 +7,7 @@
     
     <!-- <meta name="color-scheme" content="dark light"> -->
 
-    <title>Mana Panchayat Blog</title>
+    <title>Mana Panchayat | Blog</title>
 
     <!-- Local CSS Link -->
     <link rel="stylesheet" href="./css/style.css">
@@ -29,6 +29,7 @@
 <div>
     <div class="container mt-5">
         <div class="grid-box">
+            <!-- Left Side Box -->
             <div class="border p-3">
                 <div id="blogPostArea">
                     <h1 id="newsTitle" class="my-3"></h1>
@@ -64,7 +65,12 @@
 
                     <div class="my-5"><hr></div>
                     
-                    <!-- Tags -->
+
+        
+
+                </div>   
+
+                <!-- Tags -->
                     <div class="tags-container">
                         
                         <ul>
@@ -88,7 +94,6 @@
                             <li data-toggle="modal" data-target="#sharePopUpModal"> <i class="fa-solid fa-share-nodes"></i> Share to other</li>
                         </ul>
                     </div>
-
 
                     <!-- Share Pop Modal -->
                     <div class="modal fade" id="sharePopUpModal" tabindex="-1" role="dialog" aria-labelledby="sharePopUpModalLabel" aria-hidden="true">
@@ -126,12 +131,21 @@
                             </div>
                         </div>
                         </div>
+                    </div>     
+                    
+                    <!-- Previous & Next Page Buttons -->
+                    <div class="d-flex justify-content-between">
+                        <button class="btn btn-outline-dark">
+                            <i class="fa-solid fa-chevron-left mr-2"></i>Previous
+                        </button>
+                        <button class="btn btn-outline-dark">
+                            Next <i class="fa-solid fa-chevron-right ml-2"></i>
+                        </button>
                     </div>
-        
-
-                </div>                
+                
             </div>
 
+            <!-- Right Side Box -->
             <div class="border p-1">
                 <!-- Widget 1 -->
                 <div class="bg-light border p-1">
