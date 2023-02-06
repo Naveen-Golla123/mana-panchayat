@@ -7,7 +7,7 @@
         
         <!-- <meta name="color-scheme" content="dark light"> -->
 
-        <title>Mana Panchayat | View Post</title>
+        <title>Mana Panchayat | Login</title>
 
         <!-- Local CSS Link -->
         <link rel="stylesheet" href="./css/style.css">
@@ -27,59 +27,6 @@
 
         <div class="main-container d-flex justify-content-center align-items-center bg-light">
 
-            <!-- SignUp Form -->
-            <div id="signupFormContainer" class="d-none box-container bg-white shadow">
-                <div class="row">
-                    <div class="col-12 p-5">
-                        <h4 class="">Sign Up</h4>
-                        <hr />
-                        <form id="signupForm">
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <div class="d-flex justify-content-between">
-                                        <label for="firstNameErrMsg">First Name</label>
-                                        <span id="firstNameErrMsg" class="text-danger text-right"></span>
-                                    </div>
-                                    <input type="text" class="form-control" id="firstName" placeholder="First Name">
-
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <div class="d-flex justify-content-between">
-                                        <label for="lastName">Last Name</label>
-                                        <span id="lastNameErrMsg" class="text-danger text-right"></span>
-                                    </div>
-                                    <input type="text" class="form-control" id="lastName" placeholder="Last Name">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="d-flex justify-content-between">
-                                    <label for="signupMail">Email Address</label>
-                                    <span id="signupMailErrMsg" class="text-danger text-right"></span>
-                                </div>
-                                <input type="email" class="form-control" id="signupMail" placeholder="Enter Your Email">
-                            </div>
-                            <div class="form-group">
-                                <div class="d-flex justify-content-between">
-                                    <label for="signupPassword">Password</label>
-                                    <span id="signupPasswordErrMsg" class="text-danger text-right"></span>
-                                </div>
-
-                                <input type="password" class="form-control" id="signupPassword" placeholder="Enter New Password">
-                            </div>
-
-
-                            <button id="signUpButton" type="submit" class="btn btn-dark btn-block">Sign Up</button>
-                            <div class="text-center mt-3">
-                                <label class="form-check-label" for="gridCheck">
-                                    Already Signed Up? <span id="loginClick" class="text-danger cursor-point">Login Now</span>
-                                </label>
-                            </div>
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-
             <!-- Login Form -->
             <div id="loginFormContainer" class="login-container d-non box-container bg-white shadow">
                 <div class="row">
@@ -89,10 +36,10 @@
                         <form id="loginForm">
                             <div class="form-group">
                                 <div class="d-flex justify-content-between">
-                                    <label for="loginMail">Email Address</label>
-                                    <span id="loginMailErrMsg" class="text-danger text-right"></span>
+                                    <label for="loginUsername">Username</label>
+                                    <span id="loginUsernameErrMsg" class="text-danger text-right"></span>
                                 </div>
-                                <input type="email" class="form-control" id="loginMail" placeholder="Enter Your Email">
+                                <input type="text" class="form-control" id="loginUsername" placeholder="Enter Your Username">
                             </div>
                             <div class="form-group">
                                 <div class="d-flex justify-content-between">
@@ -104,10 +51,10 @@
                             </div>
 
 
-                            <button id="logInButton" type="submit" class="btn btn-dark btn-block">Login</button>
+                            <button id="logInButton" class="btn btn-dark btn-block">Login</button>
                             <div class="text-center mt-3">
                                 <label class="form-check-label" for="gridCheck">
-                                    Not yet signed up? <span id="signupClick" class="text-danger cursor-point">Signup Now</span>
+                                    Not yet signed up? <span id="signupClick" class="text-danger cursor-point"> <a href="./signup.html">Signup Now</a> </span>
                                 </label>
                             </div>
 
