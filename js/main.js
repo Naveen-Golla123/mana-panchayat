@@ -65,21 +65,21 @@ postSaveButtonEl.addEventListener("click", function (event) {
   formData.append("newsDescription", textAreaEl.value);
 
 
-    fetch("https://mana-panchayat-server.vercel.app/news/", {
-      method: 'POST',
-      redirect: 'follow',
-      mode: 'no-cors',
-      headers: {
-        'content-type': 'application/json',
-        'accept': 'application/json',
-        'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5hdmVlbl9nb2xsYSIsImlhdCI6MTY3NTQ4NTkwMiwiZXhwIjoxNjc1NjU4NzAyfQ.vrhucJ769Z6i5kRdak04_F_MgrG-BspMI5WPn_VLVjo"
+  fetch("https://mana-panchayat-server.vercel.app/news/", {
+    method: 'POST',
+    redirect: 'follow',
+    mode: 'no-cors',
+    headers: {
+      'content-type': 'application/json',
+      'accept': 'application/json',
+      'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5hdmVlbl9nb2xsYSIsImlhdCI6MTY3NTQ4NTkwMiwiZXhwIjoxNjc1NjU4NzAyfQ.vrhucJ769Z6i5kRdak04_F_MgrG-BspMI5WPn_VLVjo"
 
-      },
-      body: formData
-    })
-      .then(response => response.json())
-      .then(result => { })
-      .catch(error => console.log('error', error));
+    },
+    body: formData
+  })
+    .then(response => response.json())
+    .then(result => { })
+    .catch(error => console.log('error', error));
 
 
 
