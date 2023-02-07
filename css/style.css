@@ -117,19 +117,38 @@ body p{
     /* background-color: aquamarine; */
     border: .1rem solid black;
     border-radius: .3rem;
+    cursor: pointer;
 }
+
+.share_body ul li:hover{
+    border: .1rem solid #674188;
+    color: #FFFBF5;
+    background-color: #674188;
+}
+
 .share_body ul li i{
     display: block;
     font-size: 1.5rem;
     margin-block: .8rem;
 }
 
+#newsTitle{
+    font-size: 1.9rem;
+    font-weight: bold;
+}
+
+#newsContent{
+    font-size: 1.8rem;
+    line-height: 2rem;
+    word-spacing: 0.3rem;
+    font-weight: 400;
+}
 
 
 .grid-box{
     display: grid;
     grid-template-columns: 2.5fr 1fr;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 
