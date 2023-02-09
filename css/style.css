@@ -28,16 +28,16 @@ body p{
 }
 
 
-
-
-
-
-
 .card{
     background-image: url('https://images.unsplash.com/photo-1500622944204-b135684e99fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2922&q=80');
     background-size: cover;
 }
 
+
+#imgContainer{
+    max-height: 25rem;
+    aspect-ratio: 16/9;
+}
 
 .ad-block{
     width: auto;

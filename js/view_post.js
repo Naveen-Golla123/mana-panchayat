@@ -13,6 +13,7 @@ let newsContentEl = document.getElementById("newsContent"); //News Post Content 
 let imgContainerEl = document.getElementById("imgContainer"); // News Post Image
 let authorNameEl = document.getElementById("authorName"); // News Post Image
 let publishedDateEl = document.getElementById("publishedDate"); // News Post Image
+let postUrl ="";
 
 function dateToFormat(timeStamp){
   let dateString = timeStamp;
@@ -30,7 +31,13 @@ fetch("https://mana-panchayat-server.vercel.app/news/142", requestOptions)
     newsTitleEl.innerHTML = result[0].title; //Assigning Title to Post
     imgContainerEl.setAttribute("src", result[0].imgUrl); // Assigning Image to Post
     newsContentEl.innerHTML = result[0].newsDescription; //Assigning Content or Story to Post
-    authorNameEl.textContent = result[0].author;
+    authorNameEl.textContent = result[0].author; //Assigning Author Name of Story to Post
+
+
+    // Check this after return
+    postUrl = "https://mana-panchayat-server.vercel.app/view_post.html?id=" + result[0].id;
+
+    console.log(postUrl);
 
     let dateFormat = dateToFormat(result[0].createdOn);
 

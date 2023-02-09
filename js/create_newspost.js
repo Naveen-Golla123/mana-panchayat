@@ -1,13 +1,14 @@
+// Declaring Variables
+let postSaveButtonEl = document.getElementById("postSaveButton"); //Save Button
+let imageInputEl = document.getElementById("imageInput"); //Image Input Feild
+let titleInputEl = document.getElementById("titleInput"); //Title Input Feild
+let editor1El = document.getElementById("editor1"); //Editor Display Container
+let validationAlertEl = document.getElementById("validationAlert"); //Validation Error Pop
+let alertMessageEl = document.getElementById("alertMessage"); //Error Message Text
+
+let uploadedFile = null; //Variable for Geting Name of Uploaded File.
 
 
-let postSaveButtonEl = document.getElementById("postSaveButton");
-let imageInputEl = document.getElementById("imageInput");
-let titleInputEl = document.getElementById("titleInput");
-let editor1El = document.getElementById("editor1");
-let validationAlertEl = document.getElementById("validationAlert");
-let alertMessageEl = document.getElementById("alertMessage");
-
-let uploadedFile = null;
 // CK Editor Section
 let em_string = "";
 
@@ -25,66 +26,52 @@ editor.on('change', function (e) {
 }); ;
 
 
+//Getting Name of File on Upload
 imageInputEl.addEventListener('change', function (event) {
   uploadedFile = event.target.files[0];
-  // console.log(uploadedFile);
-
 });
 
 
+//On save Button Clicked
 postSaveButtonEl.addEventListener("click", function (event) {
 
-
+  //Validating Title is Empty
   if (titleInputEl.value === "") {
-    alertMessageEl.innerHTML = "Pleas give your Title!";
-    validationAlertEl.classList.remove('d-none');
-  } else if (contentOutput === "") {
-    alertMessageEl.innerHTML = "Pleas write something on Post!";
-    validationAlertEl.classList.remove('d-none');
+    alertMessageEl.innerHTML = "Pleas give your Title!"; //Assigning Alert Message
+    validationAlertEl.classList.remove('d-none'); //Unhiding Error Pop
+  } else if (contentOutput === "") {   //Validating News Content is Empty
+    alertMessageEl.innerHTML = "Pleas write something on Post!"; //Assigning Alert Message
+    validationAlertEl.classList.remove('d-none'); //Unhiding Error Pop
 
   } else {
-    validationAlertEl.classList.add('d-none');
+    validationAlertEl.classList.add('d-none'); //Hiding Error Pop 
 
+    //Assigning filename, TitleName, News to formdata
+    var formdata = new FormData();
+    formdata.append("file", uploadedFile, uploadedFile.name);
+    formdata.append("title", titleInputEl.value);
+    formdata.append("news", em_string);
 
+    //Request options
+    var requestOptions = {
+      method: 'POST',
+      headers: {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImtpdHR1X21pcml5YW0iLCJpYXQiOjE2NzU4NTAyNTIsImV4cCI6MTY3NjAyMzA1Mn0.3fvTX1NRelwy1O7-G3Zl6RxNxCFkpzmQLnbmzOo207I"
+      },
+      body: formdata,
+      redirect: 'follow'
+    };
 
+    //Fetching Data from Server
+    fetch("https://mana-panchayat-server.vercel.app/news", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));    
   }
 
-//  ------------------
 
-  var myHeaders = new Headers();
-  myHeaders.append("authority", "mana-panchayat-server.vercel.app");
-  myHeaders.append("accept", "application/json");
-  myHeaders.append("accept-language", "en-US,en;q=0.9");
-  myHeaders.append("dnt", "1");
-  myHeaders.append("origin", "null");
-  myHeaders.append("sec-ch-ua", "\"Not_A Brand\";v=\"99\", \"Google Chrome\";v=\"109\", \"Chromium\";v=\"109\"");
-  myHeaders.append("sec-ch-ua-mobile", "?1");
-  myHeaders.append("sec-ch-ua-platform", "\"Android\"");
-  myHeaders.append("sec-fetch-dest", "empty");
-  myHeaders.append("sec-fetch-mode", "no-cors");
-  myHeaders.append("sec-fetch-site", "cross-site");
-  myHeaders.append("Access-Control-Allow-Origin", "*");
-  myHeaders.append("Access-Control-Allow-Methods", "POST");
-  myHeaders.append("Access-Control-Allow-Headers", "Content-Type");
-  myHeaders.append("user-agent", "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Mobile Safari/537.36");
-  myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5hdmVlbl9nb2xsYSIsImlhdCI6MTY3NTc1NTc2NSwiZXhwIjoxNjc1OTI4NTY1fQ.3IWdI4BtBze8qcUxDbToX10n5B5adI3DDAl-7qYJV04");
 
-  var formdata = new FormData();
-  formdata.append("file", uploadedFile.name);
-  formdata.append("title", titleInputEl.value);
-  formdata.append("news", em_string);
 
-  var requestOptions = {
-    method: 'POST',
-    headers: myHeaders,
-    body: formdata,
-    redirect: 'follow',
-  };
-
-  fetch("https://mana-panchayat-server.vercel.app/news", requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
 }); 
 
 
