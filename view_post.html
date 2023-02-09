@@ -9,8 +9,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Share Title and Imge Meta data -->
-        <meta property="og:title" content="Page Title">
-        <meta property="og:image" content="https://www.example.com/image.jpg">
+        <meta id="metaTitle" property="og:title" content="">
+        <meta id="metaImage" property="og:image" content="">
+        <meta id="metaDescription" property="og:description" content="">
 
 
 
@@ -46,6 +47,7 @@
                     <!-- Blog Post Section (Title, Author & Time, News Content) -->
                     <div id="blogPostArea">
                         <h1 id="newsTitle" class="my-3"></h1>
+                        <hr>
                         <div class="mb-3 text-secondary d-flex justify-content-between">
                             <div class="p-1">
                                 <i class="fa-solid fa-user mr-3"></i>By <span id="authorName"></span>  
@@ -104,7 +106,8 @@
 
                                 <ul>
                                     <!-- <li> <i class="fa-brands fa-instagram"></i> Instagram</li> -->
-                                    <li> <i class="fa-brands fa-whatsapp"></i> WhatsApp</li>
+                                    <a target="_blank" href="https://api.whatsapp.com/send?text=file:///E:/_Jayakrishna/mana_panchayat/mana-panchayat/view_post.html?id=142">
+                                    <li> <i class="fa-brands fa-whatsapp"></i> WhatsApp</li></a>
                                     <!-- <li> <i class="fa-brands fa-facebook-f"></i> Facebook</li>
                                     <li> <i class="fa-brands fa-twitter"></i> Twitter</li>
                                     <li> <i class="fa-brands fa-telegram"></i> Telegram</li>
@@ -121,8 +124,8 @@
                                 <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-link"></i></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Url" aria-label="Share Link" aria-describedby="basic-addon1">
-                                <button class="btn btn-dark"> <i class="fa-regular fa-copy mr-2"></i> Copy</button>
+                                <input id="urlCopy" type="text" class="form-control" placeholder="Url" aria-label="Share Link" aria-describedby="basic-addon1">
+                                <button id="postUrlCopyButton" class="btn btn-dark"> <i class="fa-regular fa-copy mr-2"></i> Copy</button>
                             </div>
                         </div>
                         </div>

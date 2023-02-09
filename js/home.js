@@ -15,6 +15,16 @@ fetch("https://mana-panchayat-server.vercel.app/news/", requestOptions)
   let holderEl = document.getElementById("holder");
 
 
+  var mainURL = window.location.href;
+  var baseURL = mainURL.substring(0, mainURL.lastIndexOf("/")+1);
+  var postUrlEl = baseURL + "view_post.html";
+  console.log(postUrlEl);
+
+
+
+
+
+
   for (let each in result) {
 
     let divTag = document.createElement('div');
@@ -34,11 +44,13 @@ fetch("https://mana-panchayat-server.vercel.app/news/", requestOptions)
                 </div>
                 
                 <div class="d-flex justify-content-between mt-3">
-                  <p class="text-primary p-0">Read More</p>
+                  <a href="${postUrlEl}?id=${result[each].id}" target="_blank class="text-primary p-0">Read More 
+                      <i class="fa-solid fa-angles-right ml-1"></i>
+                  </a>
 
                   <div class="d-flex justify-content-between">
-                    <p class="text-secondary mr-3"><i class="fa-solid fa-location-dot mr-2"></i>${result[each].location}</p>
-                    <p class="text-secondary"><i class="fa-regular fa-clock mr-2"></i>${result[each].createdOn}</p>                    
+                    <small class="text-secondary mr-3"><i class="fa-solid fa-location-dot mr-2"></i>${result[each].location}</small>
+                    <small class="text-secondary"><i class="fa-regular fa-clock mr-2"></i>${result[each].createdOn}</small>                    
                   </div>
 
                 </div>

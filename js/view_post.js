@@ -13,8 +13,20 @@ let newsContentEl = document.getElementById("newsContent"); //News Post Content 
 let imgContainerEl = document.getElementById("imgContainer"); // News Post Image
 let authorNameEl = document.getElementById("authorName"); // News Post Image
 let publishedDateEl = document.getElementById("publishedDate"); // News Post Image
-let postUrl ="";
+let urlCopyEl = document.getElementById("urlCopy"); // Varible to store page url
+let postUrlCopyButtonEl = document.getElementById("postUrlCopyButton"); // Button to copy post's URL
+//Assigning Meta Details
+let metaTitleEl = document.getElementById("metaTitle"); // Button to copy post's URL
+let metaImageEl = document.getElementById("metaImage"); // Button to copy post's URL
+let metaDescriptionEl = document.getElementById("metaDescription"); // Button to copy post's URL
 
+//Collecting Url of Page
+var mainURL = window.location.href;
+var baseURL = mainURL.substring(0, mainURL.lastIndexOf("/")+1);
+var postUrlEl = baseURL + "view_post.html";
+console.log(postUrlEl);
+
+//Formating Date to "DD MM YYYY" 
 function dateToFormat(timeStamp){
   let dateString = timeStamp;
   dateString = dateString.slice(0, -5);
@@ -24,7 +36,8 @@ function dateToFormat(timeStamp){
 }
 
 
-fetch("https://mana-panchayat-server.vercel.app/news/142", requestOptions)
+//Fetching data form the API
+fetch("https://mana-panchayat-server.vercel.app/news/", requestOptions)
 .then(response => response.json())
 .then(result => {
 
@@ -34,18 +47,41 @@ fetch("https://mana-panchayat-server.vercel.app/news/142", requestOptions)
     authorNameEl.textContent = result[0].author; //Assigning Author Name of Story to Post
 
 
-    // Check this after return
-    postUrl = "https://mana-panchayat-server.vercel.app/view_post.html?id=" + result[0].id;
+    // // Url of Post
+    // postUrl = window.location.href +"?id="+result[0].id;
+    // urlCopyEl.value = postUrl;
 
-    console.log(postUrl);
-
+    //Date to HTML Element
     let dateFormat = dateToFormat(result[0].createdOn);
-
     publishedDateEl.textContent = dateFormat;
+
+
+    //Giving meta details to page
+    metaTitleEl.content = result[0].title;
+    metaImageEl.content = result[0].imgUrl;
+    // metaDescriptionEl.content = ;
 
 }
 
 )
 .catch(error => console.log('error', error));
+
+
+//Post's Url coping to Clipboard
+
+
+// Function to copy To Clipboard
+async function copyToClipboard(text) {
+  try {
+    await navigator.clipboard.writeText(text);
+    console.log("Text copied to clipboard successfully!");
+  } catch (error) {
+    console.error("Failed to copy text to clipboard: ", error);
+  }
+}
+
+var textToCopy = "postUrl";
+copyToClipboard(textToCopy);
+
 
 
