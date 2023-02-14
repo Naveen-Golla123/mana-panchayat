@@ -15,6 +15,8 @@ let authorNameEl = document.getElementById("authorName"); // News Post Image
 let publishedDateEl = document.getElementById("publishedDate"); // News Post Image
 let urlCopyEl = document.getElementById("urlCopy"); // Varible to store page url
 let postUrlCopyButtonEl = document.getElementById("postUrlCopyButton"); // Button to copy post's URL
+let latestPostsEl = document.getElementById("latestPosts");
+
 //Assigning Meta Details
 let metaTitleEl = document.getElementById("metaTitle"); // Button to copy post's URL
 let metaImageEl = document.getElementById("metaImage"); // Button to copy post's URL
@@ -51,7 +53,7 @@ fetch("https://mana-panchayat-server.vercel.app/news/"+id, requestOptions)
     newsTitleEl.innerHTML = result.title; //Assigning Title to Post
     imgContainerEl.setAttribute("src", result.imgUrl); // Assigning Image to Post
     newsContentEl.innerHTML = result.newsDescription; //Assigning Content or Story to Post
-    authorNameEl.textContent = result.author; //Assigning Author Name of Story to Post
+    authorNameEl.textContent = result.author.firstname + " " + result.author.lastname; //Assigning Author Name of Story to Post
 
 
     // // Url of Post
@@ -73,6 +75,59 @@ fetch("https://mana-panchayat-server.vercel.app/news/"+id, requestOptions)
 
 )
 .catch(error => console.log('error', error));
+
+
+//Fetching Latest posts
+fetch("https://mana-panchayat-server.vercel.app/news/latest/5", requestOptions)
+  .then(response => response.json())
+  .then(result => {
+
+    var mainURL = window.location.href;
+    var baseURL = mainURL.substring(0, mainURL.lastIndexOf("/") + 1);
+    var postUrlEl = baseURL + "view_post.html";
+    console.log(postUrlEl);
+
+    for (let each in result) {
+
+      let divTag = document.createElement('div');
+      divTag.setAttribute("id", "news_"+ result[each].id);
+      divTag.classList.add("row", "mt-0");
+
+
+      let allPostsCode = `
+      <div class="col-12">
+        <div class="row">
+            <div class="col-4">
+                <img class="w-100" src="${result[each].imgUrl}" alt="">
+            </div>
+            <div class="col-8 p-0">
+                <small class="">${result[each].title}</small>
+            </div>                                 
+        </div> 
+        <hr class=""> 
+      </div>    
+  
+        `;
+
+      divTag.innerHTML = allPostsCode;
+      latestPostsEl.appendChild(divTag);
+      document.getElementById("news_" + result[each].id).addEventListener('click', event => {
+        window.location.href = postUrlEl + "?id=" + result[each].id;
+      })
+    }
+  }
+
+  )
+  .catch(error => console.log('error', error));
+
+
+
+
+
+
+
+
+
 
 
 //Post's Url coping to Clipboard

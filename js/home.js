@@ -12,7 +12,6 @@ fetch("https://mana-panchayat-server.vercel.app/news/latest/10", requestOptions)
 
 
     let allPostsEl = document.getElementById("allPosts");
-    let holderEl = document.getElementById("holder");
 
 
     var mainURL = window.location.href;
@@ -20,23 +19,18 @@ fetch("https://mana-panchayat-server.vercel.app/news/latest/10", requestOptions)
     var postUrlEl = baseURL + "view_post.html";
     console.log(postUrlEl);
 
-
-
-
-
-
     for (let each in result) {
 
       let divTag = document.createElement('div');
       divTag.setAttribute("id", "news_"+ result[each].id);
-      divTag.classList.add("row", "border", "mt-3", "py-3");
+      divTag.classList.add("row", "border", "mt-3");
 
 
       let allPostsCode = `
             <div class="col-3">
                 <img class="w-100 h-auto" src="${result[each].imgUrl}" alt="" srcset="">
             </div>
-            <div class="col-9">
+            <div class="col-9 py-3">
                 <h5 class="font-weight-bold">${result[each].title}</h5>
                 <div class="mt-3" style="max-height:50px; overflow:hidden;">
                   <p class="" >${result[each].newsDescription}</p>

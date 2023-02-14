@@ -1,9 +1,25 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Akshar:wght@500&display=swap');
 
+
+
+
+
+:root{
+    --theme-primary:#82B9E6;
+    --theme-secondary:#E1EDF7;
+    --theme-dark:#1C2B33;
+
+    --text-primary:#002D56;
+    --text-secondary:#002D56;
+    --text-dark:#002D56;
+}
+
+
 body{
     
     font-family: 'Akshar', sans-serif;
+    color: var(--theme-primary);
 }
 
 body p{
@@ -12,6 +28,21 @@ body p{
     font-family: 'Akshar', sans-serif;
 
 }
+
+
+
+
+#holder{
+    background-color: var(--theme-secondary);
+    border-radius: .3rem;
+    color: var(--theme-dark);
+    border: 5px solid var(--theme-dark);
+
+}
+
+
+
+
 
 /* Login Page  */
 
