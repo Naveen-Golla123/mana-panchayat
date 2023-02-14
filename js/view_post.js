@@ -37,7 +37,7 @@ function dateToFormat(timeStamp){
 
 
 //Fetching data form the API
-fetch("https://mana-panchayat-server.vercel.app/news/", requestOptions)
+fetch("https://mana-panchayat-server.vercel.app/news/142", requestOptions)
 .then(response => response.json())
 .then(result => {
 
@@ -48,8 +48,8 @@ fetch("https://mana-panchayat-server.vercel.app/news/", requestOptions)
 
 
     // // Url of Post
-    // postUrl = window.location.href +"?id="+result[0].id;
-    // urlCopyEl.value = postUrl;
+    postUrl = window.location.href +"?id="+result[0].id;
+    urlCopyEl.value = postUrl;
 
     //Date to HTML Element
     let dateFormat = dateToFormat(result[0].createdOn);
