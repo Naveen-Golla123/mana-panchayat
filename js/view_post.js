@@ -35,9 +35,14 @@ function dateToFormat(timeStamp){
   return formattedDate;
 }
 
+const queryString = window.location.search;
+console.log(queryString);
+const urlParams = new URLSearchParams(queryString);
+const id = urlParams.get('id')
+console.log(id)
 
 //Fetching data form the API
-fetch("https://mana-panchayat-server.vercel.app/news/142", requestOptions)
+fetch("https://mana-panchayat-server.vercel.app/news/"+id, requestOptions)
 .then(response => response.json())
 .then(result => {
 

@@ -52,11 +52,12 @@ postSaveButtonEl.addEventListener("click", function (event) {
     formdata.append("title", titleInputEl.value);
     formdata.append("news", em_string);
 
+    token = localStorage.getItem('jwtToken');
     //Request options
     var requestOptions = {
       method: 'POST',
       headers: {
-        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImtpdHR1X21pcml5YW0iLCJpYXQiOjE2NzU4NTAyNTIsImV4cCI6MTY3NjAyMzA1Mn0.3fvTX1NRelwy1O7-G3Zl6RxNxCFkpzmQLnbmzOo207I"
+        "Authorization": "Bearer " + token
       },
       body: formdata,
       redirect: 'follow'
@@ -68,10 +69,6 @@ postSaveButtonEl.addEventListener("click", function (event) {
       .then(result => console.log(result))
       .catch(error => console.log('error', error));    
   }
-
-
-
-
 }); 
 
 
