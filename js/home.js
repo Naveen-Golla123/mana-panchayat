@@ -6,7 +6,7 @@ var requestOptions = {
 };
 
 
-fetch("https://mana-panchayat-server.vercel.app/news/", requestOptions)
+fetch("https://mana-panchayat-server.vercel.app/news/latest/10", requestOptions)
   .then(response => response.json())
   .then(result => {
 
@@ -28,12 +28,11 @@ fetch("https://mana-panchayat-server.vercel.app/news/", requestOptions)
     for (let each in result) {
 
       let divTag = document.createElement('div');
-      divTag.setAttribute("id", result[each].id);
+      divTag.setAttribute("id", "news_"+ result[each].id);
       divTag.classList.add("row", "border", "mt-3", "py-3");
 
 
       let allPostsCode = `
-          <div id="news_${result[each].id}">
             <div class="col-3">
                 <img class="w-100 h-auto" src="${result[each].imgUrl}" alt="" srcset="">
             </div>
@@ -54,8 +53,7 @@ fetch("https://mana-panchayat-server.vercel.app/news/", requestOptions)
                   </div>
 
                 </div>
-            </div>
-          </div>           
+            </div>         
         `;
 
       divTag.innerHTML = allPostsCode;

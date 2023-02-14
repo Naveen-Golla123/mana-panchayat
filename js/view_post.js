@@ -38,32 +38,35 @@ function dateToFormat(timeStamp){
 const queryString = window.location.search;
 console.log(queryString);
 const urlParams = new URLSearchParams(queryString);
-const id = urlParams.get('id')
-console.log(id)
+const id = urlParams.get('id');
 
 //Fetching data form the API
 fetch("https://mana-panchayat-server.vercel.app/news/"+id, requestOptions)
 .then(response => response.json())
 .then(result => {
 
-    newsTitleEl.innerHTML = result[0].title; //Assigning Title to Post
-    imgContainerEl.setAttribute("src", result[0].imgUrl); // Assigning Image to Post
-    newsContentEl.innerHTML = result[0].newsDescription; //Assigning Content or Story to Post
-    authorNameEl.textContent = result[0].author; //Assigning Author Name of Story to Post
+    console.log(id);
+    console.log(result);
+
+    newsTitleEl.innerHTML = result.title; //Assigning Title to Post
+    imgContainerEl.setAttribute("src", result.imgUrl); // Assigning Image to Post
+    newsContentEl.innerHTML = result.newsDescription; //Assigning Content or Story to Post
+    authorNameEl.textContent = result.author; //Assigning Author Name of Story to Post
 
 
     // // Url of Post
-    postUrl = window.location.href +"?id="+result[0].id;
-    urlCopyEl.value = postUrl;
+    postUrlEl = window.location.href;
+    console.log(postUrlEl);
+    urlCopyEl.value = postUrlEl;
 
     //Date to HTML Element
-    let dateFormat = dateToFormat(result[0].createdOn);
+    let dateFormat = dateToFormat(result.createdOn);
     publishedDateEl.textContent = dateFormat;
 
 
     //Giving meta details to page
-    metaTitleEl.content = result[0].title;
-    metaImageEl.content = result[0].imgUrl;
+    // metaTitleEl.content = result.title;
+    // metaImageEl.content = result.imgUrl;
     // metaDescriptionEl.content = ;
 
 }
@@ -76,17 +79,17 @@ fetch("https://mana-panchayat-server.vercel.app/news/"+id, requestOptions)
 
 
 // Function to copy To Clipboard
-async function copyToClipboard(text) {
-  try {
-    await navigator.clipboard.writeText(text);
-    console.log("Text copied to clipboard successfully!");
-  } catch (error) {
-    console.error("Failed to copy text to clipboard: ", error);
-  }
-}
+// async function copyToClipboard(text) {
+//   try {
+//     await navigator.clipboard.writeText(text);
+//     console.log("Text copied to clipboard successfully!");
+//   } catch (error) {
+//     console.error("Failed to copy text to clipboard: ", error);
+//   }
+// }
 
-var textToCopy = "postUrl";
-copyToClipboard(textToCopy);
+// var textToCopy = postUrlEl;
+// copyToClipboard(textToCopy);
 
 
 
