@@ -96,7 +96,7 @@ fetch("https://mana-panchayat-server.vercel.app/news/latest/5", requestOptions)
 
       let allPostsCode = `
       <div class="col-12">
-        <div class="row">
+        <div class="row cursor-point">
             <div class="col-4">
                 <img class="w-100" src="${result[each].imgUrl}" alt="">
             </div>
