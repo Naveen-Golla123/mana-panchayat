@@ -1,0 +1,4 @@
+User-agent: *
+
+Allow: /
+Sitemap: http://mana-panchayat.great-site.net/sitemap.xml
