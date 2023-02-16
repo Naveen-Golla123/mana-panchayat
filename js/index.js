@@ -32,7 +32,7 @@ fetch("https://mana-panchayat-server.vercel.app/news/latest/10", requestOptions)
             </div>
             <div class="col-9 py-3">
                 <h5 class="font-weight-bold">${result[each].title}</h5>
-                <div class="mt-3" style="max-height:50px;flex: 1;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
+                <div class="mt-3 w-100" style="max-height:50px; display:inline-block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                 
   
                 

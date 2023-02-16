@@ -9,7 +9,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         
         <!-- HTML Meta Tags -->
-        <!-- <title>పంచుకుందాం – తెలుగు కథ</title> -->
+        <title></title>
 
         <!-- Facebook Meta Tags -->
         <meta property="og:type" content="website">
@@ -35,7 +35,7 @@
 
     </head>
 
-    <body>
+    <body class="bg-light">
 
         <div class="container mt-5">
 
@@ -43,10 +43,10 @@
             <div class="grid-box">
 
                 <!-- Left Side Box -->
-                <div class="">
+                <div class="bg-white p-3 rounded shadow mb-5">
 
                     <!-- Blog Post Section (Title, Author & Time, News Content) -->
-                    <div id="blogPostArea">
+                    <div class="" id="blogPostArea">
                         <h1 id="newsTitle" class="my-3"></h1>
                         <hr>
                         <div class="mb-3 text-secondary d-flex justify-content-between">
@@ -54,9 +54,11 @@
                                 <i class="fa-solid fa-user mr-2"></i>By <span id="authorName"> </span>  
                                 <i class="fa-solid fa-calendar-days mx-2"></i> <span id="publishedDate"></span>                                 
                             </div>
-                            <div class="border p-1 px-3 cursor-point" data-toggle="modal" data-target="#sharePopUpModal">
+                            <a id="whatsappUrl" href="">
+                            <div class="btn btn-outline-secondary p-1 px-3 cursor-point">
                                 <i class="fa-solid fa-share-nodes mr-2"></i>Share    
                             </div>
+                            </a>
 
                         </div>
 
@@ -125,26 +127,26 @@
 
                             <div><hr></div>
 
-                            <div class="input-group mb-3 p-4">
+                            <!-- <div class="input-group mb-3 p-4">
                                 <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-link"></i></span>
                                 </div>
                                 <input id="urlCopy" type="text" class="form-control" placeholder="Url" aria-label="Share Link" aria-describedby="basic-addon1">
                                 <button id="postUrlCopyButton" class="btn btn-dark"> <i class="fa-regular fa-copy mr-2"></i> Copy</button>
-                            </div>
+                            </div> -->
                         </div>
                         </div>
                     </div>     
                         
                     <!-- Previous & Next Page Buttons -->
-                    <div class="d-flex justify-content-between">
+                    <!-- <div class="d-flex justify-content-between">
                         <button class="btn btn-outline-dark">
                             <i class="fa-solid fa-chevron-left mr-2"></i>Previous
                         </button>
                         <button class="btn btn-outline-dark">
                             Next <i class="fa-solid fa-chevron-right ml-2"></i>
                         </button>
-                    </div>
+                    </div> -->
                     
                 </div>
 
@@ -178,8 +180,8 @@
                     </div> -->
 
                     <!-- Widget 3 (List Of Latest Posts) -->
-                    <div class="border">
-                        <h5 class="font-weight-bold mb-3 p-3 text-white bg-primary text-center">Latest Posts</h5>
+                    <div class="border bg-white rounded shadow">
+                        <h5 class="font-weight-bold mb-3 p-3 text-white bg-secondary text-center">Latest Posts</h5>
                         <div class="p-2 mt-3">
                             <div class="row px-3" id="latestPosts">
                                 <!-- Item 1 -->

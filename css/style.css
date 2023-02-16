@@ -1,10 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Akshar:wght@500&display=swap');
 
-
-
-
-
 :root{
     --theme-primary:#82B9E6;
     --theme-secondary:#E1EDF7;
@@ -16,10 +12,11 @@
 }
 
 
+
 body{
     
     font-family: 'Akshar', sans-serif;
-    color: var(--theme-primary);
+    background-color: var(--theme-primary);
 }
 
 body p{
@@ -40,8 +37,9 @@ body p{
 
 }
 
-
-
+.shadow{
+    box-shadow: -1px 7px 8px 0 rgb(0 0 0 / 10%);
+}
 
 
 /* Login Page  */

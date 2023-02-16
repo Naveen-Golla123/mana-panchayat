@@ -60,8 +60,7 @@ console.log(result);
 
     // // Url of Post
     postUrlEl = window.location.href;
-    console.log("post:" + postUrlEl);
-    urlCopyEl.value = postUrlEl;
+    // urlCopyEl.value = postUrlEl;
 
     //Date to HTML Element
     let dateFormat = dateToFormat(result.createdOn);
@@ -69,14 +68,14 @@ console.log(result);
 
     //WhatsApp Share link
     whatsappUrlEl.href = "https://api.whatsapp.com/send?text=" + postUrlEl;
-
+    console.log(whatsappUrlEl);
 
     //Giving meta details to page
     metaUrlEl.content = postUrlEl;
     metaTitleEl.content = result.title;
     metaImageEl.content = result.imgUrl;
     metaDescriptionEl.content = result.newsDescription ;
-    console.log(metaDescriptionEl);
+
 
 }
 
