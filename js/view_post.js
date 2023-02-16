@@ -15,7 +15,8 @@ let authorNameEl = document.getElementById("authorName"); // News Post Image
 let publishedDateEl = document.getElementById("publishedDate"); // News Post Image
 let urlCopyEl = document.getElementById("urlCopy"); // Varible to store page url
 let postUrlCopyButtonEl = document.getElementById("postUrlCopyButton"); // Button to copy post's URL
-let latestPostsEl = document.getElementById("latestPosts");
+let latestPostsEl = document.getElementById("latestPosts"); //Latest Post Container
+let whatsappUrlEl = document.getElementById("whatsappUrl");
 
 //Assigning Meta Details
 let metaTitleEl = document.getElementById("metaTitle"); // Button to copy post's URL
@@ -26,7 +27,6 @@ let metaDescriptionEl = document.getElementById("metaDescription"); // Button to
 var mainURL = window.location.href;
 var baseURL = mainURL.substring(0, mainURL.lastIndexOf("/")+1);
 var postUrlEl = baseURL + "view_post.html";
-console.log(postUrlEl);
 
 //Formating Date to "DD MM YYYY" 
 function dateToFormat(timeStamp){
@@ -38,7 +38,6 @@ function dateToFormat(timeStamp){
 }
 
 const queryString = window.location.search;
-console.log(queryString);
 const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id');
 
@@ -47,28 +46,31 @@ fetch("https://mana-panchayat-server.vercel.app/news/"+id, requestOptions)
 .then(response => response.json())
 .then(result => {
 
-    console.log(id);
-    console.log(result);
-
+console.log(result);
     newsTitleEl.innerHTML = result.title; //Assigning Title to Post
     imgContainerEl.setAttribute("src", result.imgUrl); // Assigning Image to Post
     newsContentEl.innerHTML = result.newsDescription; //Assigning Content or Story to Post
-    authorNameEl.textContent = result.author.firstname + " " + result.author.lastname; //Assigning Author Name of Story to Post
+    if(result.author !== null){
+      authorNameEl.textContent = result.author.firstname + " " + result.author.lastname; //Assigning Author Name of Story to Post
+    }
 
 
     // // Url of Post
     postUrlEl = window.location.href;
-    console.log(postUrlEl);
+    console.log("post:" + postUrlEl);
     urlCopyEl.value = postUrlEl;
 
     //Date to HTML Element
     let dateFormat = dateToFormat(result.createdOn);
     publishedDateEl.textContent = dateFormat;
 
+    //WhatsApp Share link
+    whatsappUrlEl.href = "https://api.whatsapp.com/send?text=" + postUrlEl;
+
 
     //Giving meta details to page
-    // metaTitleEl.content = result.title;
-    // metaImageEl.content = result.imgUrl;
+    metaTitleEl.content = result.title;
+    metaImageEl.content = result.imgUrl;
     // metaDescriptionEl.content = ;
 
 }
@@ -85,7 +87,7 @@ fetch("https://mana-panchayat-server.vercel.app/news/latest/5", requestOptions)
     var mainURL = window.location.href;
     var baseURL = mainURL.substring(0, mainURL.lastIndexOf("/") + 1);
     var postUrlEl = baseURL + "view_post.html";
-    console.log(postUrlEl);
+    // console.log(postUrlEl);
 
     for (let each in result) {
 
