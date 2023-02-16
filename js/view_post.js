@@ -19,6 +19,7 @@ let latestPostsEl = document.getElementById("latestPosts"); //Latest Post Contai
 let whatsappUrlEl = document.getElementById("whatsappUrl");
 
 //Assigning Meta Details
+let metaUrlEl = document.getElementById("metaUrl"); // Meta Post Url
 let metaTitleEl = document.getElementById("metaTitle"); // Button to copy post's URL
 let metaImageEl = document.getElementById("metaImage"); // Button to copy post's URL
 let metaDescriptionEl = document.getElementById("metaDescription"); // Button to copy post's URL
@@ -52,6 +53,8 @@ console.log(result);
     newsContentEl.innerHTML = result.newsDescription; //Assigning Content or Story to Post
     if(result.author !== null){
       authorNameEl.textContent = result.author.firstname + " " + result.author.lastname; //Assigning Author Name of Story to Post
+    }else{
+      authorNameEl.textContent= "Admin";
     }
 
 
@@ -69,9 +72,11 @@ console.log(result);
 
 
     //Giving meta details to page
+    metaUrlEl.content = postUrlEl;
     metaTitleEl.content = result.title;
     metaImageEl.content = result.imgUrl;
-    // metaDescriptionEl.content = ;
+    metaDescriptionEl.content = result.newsDescription ;
+    console.log(metaDescriptionEl);
 
 }
 
